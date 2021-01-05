@@ -1,3 +1,19 @@
+# In order this script will...
+# activate maintenance mode
+# set admin user
+# set admin password
+# disable bitnami banner
+# delete jetpack plugin
+# download multiple themes
+# download multiple plugins
+# install themes
+# install plugins
+# update all plugins
+# update all themes
+# activate theme and plugins
+# deactivate maintenance mode
+
+
 sudo -u bitnami -i -- wp maintenance-mode activate
 /opt/bitnami/apps/wordpress/bnconfig --userlogin adminaccount
 /opt/bitnami/apps/wordpress/bnconfig --userpassword randompassword
