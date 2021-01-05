@@ -1,0 +1,19 @@
+sudo -u bitnami -i -- wp maintenance-mode activate
+/opt/bitnami/apps/wordpress/bnconfig --userlogin adminaccount
+/opt/bitnami/apps/wordpress/bnconfig --userpassword randompassword
+/opt/bitnami/apps/wordpress/bnconfig --disable_banner 1
+sudo -u bitnami -i -- wp plugin delete jetpack
+/usr/bin/wget https://example.com/wordpressthemes.tar 
+/usr/bin/wget https://example.com/wordpressplugins.tar 
+/usr/bin/tar -xf wordpressthemes.tar --directory /home/bitnami/apps/wordpress/htdocs/wp-content/themes 
+/usr/bin/tar -xf wordpressplugins.tar --directory /home/bitnami/apps/wordpress/htdocs/wp-content/plugins
+sudo -u bitnami -i -- wp plugin update --all
+sudo -u bitnami -i -- wp theme update --all
+sudo -u bitnami -i -- wp plugin activate elementor
+sudo -u bitnami -i -- wp plugin activate header-footer-elementor
+sudo -u bitnami -i -- wp plugin activate vigilantor
+sudo -u bitnami -i -- wp plugin activate classic-editor
+sudo -u bitnami -i -- wp theme activate generatepress
+sudo -u bitnami -i -- wp maintenance-mode deactivate
+
+
